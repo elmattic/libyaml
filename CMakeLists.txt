@@ -26,3 +26,11 @@ target_link_libraries(test-reader yaml)
 add_test(NAME reader COMMAND test-reader)
 
 enable_testing()
+
+install (TARGETS yaml yaml_static
+    RUNTIME DESTINATION bin
+    LIBRARY DESTINATION lib
+    ARCHIVE DESTINATION lib
+)
+
+install(FILES ./include/yaml.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/yaml-c)
